@@ -1,14 +1,25 @@
 package com.bitcamp.op;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller
+
+@Controller()
 public class LoginController {
 	
-	@RequestMapping("/naverLogin")
-	public String index() {
+	@RequestMapping(value="/naverLogin", method=RequestMethod.GET)
+	public String toLogin() {
 		return "naverLogin";
+	}
+	
+	@RequestMapping(value="/naverLogin", method=RequestMethod.POST)
+	public String successLogin(
+			LoginInfo info,		//3. 객체를 이용해서 데이터 받기
+			Model model
+			) {
+		return "loginOk";
 	}
 
 }
