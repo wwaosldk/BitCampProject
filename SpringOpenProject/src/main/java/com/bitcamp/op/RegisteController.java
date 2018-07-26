@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class IndexController {
+public class RegisteController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/naverRegi")
 	public String index() {
-		return "index";
+		return "naverRegi";
 	}
 
 }
