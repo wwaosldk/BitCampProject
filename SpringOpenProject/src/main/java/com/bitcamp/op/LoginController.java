@@ -11,7 +11,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/naverLogin", method=RequestMethod.GET)
 	public String toLogin() {
-		return "naverLogin";
+		return "user/naverLogin";
 	}
 	
 	@RequestMapping(value="/naverLogin", method=RequestMethod.POST)
@@ -19,7 +19,7 @@ public class LoginController {
 			LoginInfo info,		//3. 객체를 이용해서 데이터 받기
 			Model model
 			) {
-		return "loginOk";
+		return "user/loginOk";
 	}
 
 }

@@ -11,7 +11,7 @@ public class RegisteController {
 	
 	@RequestMapping( value="/naverRegi", method=RequestMethod.GET)
 	public String toRegi() {
-		return "naverRegi";
+		return "user/naverRegi";
 	}
 	
 	
@@ -22,7 +22,7 @@ public class RegisteController {
 			Model model
 			) {
 		
-		return "regiOk";
+		return "user/regiOk";
 	}
 
 }
