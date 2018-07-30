@@ -1,4 +1,4 @@
-package com.bitcamp.member.model;
+package com.bitcamp.op.member.controller;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bitcamp.op.member.dao.UserDAO;
 
 
 @Controller

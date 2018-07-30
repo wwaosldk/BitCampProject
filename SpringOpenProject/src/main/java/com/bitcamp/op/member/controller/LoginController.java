@@ -1,4 +1,4 @@
-package com.bitcamp.op;
+package com.bitcamp.op.member.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller()
 public class LoginController {
+	
+	@RequestMapping(value="/naverAgree")
+	public String toAgree() {
+		return "user/naverAgree";
+	}
 	
 	@RequestMapping(value="/naverLogin", method=RequestMethod.GET)
 	public String toLogin() {

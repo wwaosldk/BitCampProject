@@ -1,4 +1,4 @@
-package com.bitcamp.member.model;
+package com.bitcamp.op.member.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.bitcamp.op.jdbc.JdbcUtil;
+import com.bitcamp.op.member.model.Userset;
 import com.bitcamp.op.jdbc.ConnectionProvider;
 
 
@@ -55,9 +56,9 @@ public class UserDAO {
 	
 	
 	public int join(Connection conn, Userset user) throws SQLException{
-		
+		int insertCnt = 0;
 		PreparedStatement pstmt = null;
-		String SQL = "INSERT INTO NAVER_USER VALUES (naver_user_seq.NEXTVAL,?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO NAVER_USER (user_seq, id, password, name, birth, gender, checkemail, phone, photo) VALUES (naver_user_seq.NEXTVAL,?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			
 			pstmt = conn.prepareStatement(SQL);
@@ -68,12 +69,13 @@ public class UserDAO {
 			pstmt.setString(5, user.getGender());
 			pstmt.setString(6, user.getCheckemail());
 			pstmt.setString(7, user.getPhone());
-			return pstmt.executeUpdate();
+			pstmt.setString(8, user.getMemberPhoto());
+			insertCnt = pstmt.executeUpdate();
 			
 		}finally {
 			JdbcUtil.close(pstmt);
 		}
-		
+		return insertCnt;
 	}
 	
 	public int registerCheck(String userID) {
