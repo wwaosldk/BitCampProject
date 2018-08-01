@@ -13,14 +13,13 @@ import com.bitcamp.op.member.model.Userset;
 import com.bitcamp.op.member.service.MemberRegService;
 
 @Controller
-@RequestMapping("user/naverRegi")
 public class RegisteController {
 	@Autowired
 	MemberRegService memberRegService;
 
 	
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="user/naverRegi",method = RequestMethod.GET)
 	public ModelAndView getLoginForm() {
 		String viewName = "user/naverRegi";
 		ModelAndView modelAndView = new ModelAndView();
@@ -28,8 +27,15 @@ public class RegisteController {
 		return modelAndView;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	/*@RequestMapping(method = RequestMethod.POST)
+	public String toRegiOk() {
+		return "user/regiOk";
+	}*/
+	
+	@RequestMapping(value="user/naverRegi", method = RequestMethod.POST)
 	public ModelAndView processLogin(Userset member, HttpServletRequest request) throws Exception {
+		
+		System.out.println("dddd");
 		String viewName = "user/regiOk";
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName(viewName);
@@ -38,7 +44,6 @@ public class RegisteController {
 
 		modelAndView.addObject("insertCnt", insertCnt);
 
-		// System.out.println(member);
 
 		return modelAndView;
 	}

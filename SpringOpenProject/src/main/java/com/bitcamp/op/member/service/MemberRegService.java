@@ -41,7 +41,6 @@ public class MemberRegService {
 			
 			// 저장
 			memberVo.getPhotoFile().transferTo(new File(dir, imgName));
-			
 			// DB에 저장할 파일 이름을 SET
 			memberVo.setMemberPhoto(imgName);
 		}

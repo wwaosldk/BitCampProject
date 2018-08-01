@@ -58,7 +58,7 @@ public class UserDAO {
 	public int join(Connection conn, Userset user) throws SQLException{
 		int insertCnt = 0;
 		PreparedStatement pstmt = null;
-		String SQL = "INSERT INTO NAVER_USER (user_seq, id, password, name, birth, gender, checkemail, phone, photo) VALUES (naver_user_seq.NEXTVAL,?, ?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO NAVER_USER (user_seq, id, password, name, birth, gender, checkemail, phone, photo ) VALUES (naver_user_seq.NEXTVAL,?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			
 			pstmt = conn.prepareStatement(SQL);
