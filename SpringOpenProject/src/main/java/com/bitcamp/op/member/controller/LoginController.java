@@ -19,10 +19,15 @@ public class LoginController {
 	
 	@Autowired
 	MemberLoginService memberLoginService;
-
+	
 	@RequestMapping(value = "user/naverLogin")
 	public String totheLogin() {
-		return "user/naverLogin";
+		return "redirect:/naverLogin";
+	}
+	
+	@RequestMapping(value = "user/successLogout")
+	public String successLogout() {
+		return "user/successLogout";
 	}
 
 	@RequestMapping(value = "/naverLogin", method = RequestMethod.GET)

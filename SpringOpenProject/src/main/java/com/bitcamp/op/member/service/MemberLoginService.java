@@ -34,21 +34,16 @@ public class MemberLoginService {
 		
 		boolean result = false;
 		HttpSession session = request.getSession(false);
-		System.out.println("1");
 		//Connection conn = null;
 		
 
 		/*try {*/
 			//conn = ConnectionProvider.getConnection();
 
-			//MemberVo memberVo = memberDao.selectById(conn, userId);
-			Userset memberVo = memberDao.selectById(id);
-			System.out.println("2");
-			System.out.println(memberDao);
-			System.out.println("memberVo는 "+memberVo);
-			if (memberVo != null && memberVo.isMatchPassword(password)) {
-				System.out.println("3");
-				session.setAttribute("loginInfo", memberVo);
+			//userset userset = memberDao.selectById(conn, userId);
+			Userset userset = memberDao.selectById(id);
+			if (userset != null && userset.isMatchPassword(password)) {
+				session.setAttribute("loginInfo", userset);
 				System.out.println("로그인 성공");
 				result = true;
 			}

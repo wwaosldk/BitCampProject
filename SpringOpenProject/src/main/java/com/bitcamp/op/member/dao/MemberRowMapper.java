@@ -20,7 +20,7 @@ public class MemberRowMapper implements RowMapper<Userset> {
 		Userset.setGender(rs.getString(6));
 		Userset.setCheckemail(rs.getString(7));
 		Userset.setPhone(rs.getString(8));
-		Userset.setPhone(rs.getString(9));
+		Userset.setMemberPhoto(rs.getString(9));
 		return Userset;
 	}
 

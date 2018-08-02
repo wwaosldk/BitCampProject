@@ -17,7 +17,10 @@ public class RegisteController {
 	@Autowired
 	MemberRegService memberRegService;
 
-	
+	@RequestMapping(value = "naverAgree")
+	public String successLogout() {
+		return "/user/naverAgree";
+	}
 	
 	@RequestMapping(value="user/naverRegi",method = RequestMethod.GET)
 	public ModelAndView getLoginForm() {
