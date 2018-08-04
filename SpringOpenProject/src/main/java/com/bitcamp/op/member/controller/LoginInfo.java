@@ -1,4 +1,4 @@
-package com.bitcamp.op;
+package com.bitcamp.op.member.controller;
 
 
 public class LoginInfo {

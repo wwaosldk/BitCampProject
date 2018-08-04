@@ -87,9 +87,9 @@ System.out.println("3333333333333333333333");
          Class.forName("org.apache.commons.dbcp2.PoolingDriver");
          PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
          // 위에서 커넥션 풀 드라이버에 생성한 커넥션 풀을 등록한다. 이름은 chap14 이다.
-         driver.registerPool("navertest", connectionPool);
+         driver.registerPool("guestbook", connectionPool);
          
-         System.out.println("navertest 이름으로 컨넥션 풀 등록 성공");
+         System.out.println("guestbook 이름으로 컨넥션 풀 등록 성공");
          
          
          
