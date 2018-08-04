@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.bitcamp.op.mapper.mybatis.MemberMapper">
+	<select id="selectById"
+		resultType="com.bitcamp.op.member.model.Userset"> select * from naver_user where id = #{idparam} </select>
+	<insert id="insertMember"
+		parameterType="com.bitcamp.op.member.model.Userset"> insert into naver_user values( #{id},
+		#{password}, #{name}, #{birth}, #{gender}, #{checkemail}, #{phone}, #{memberPhoto}) </insert>
+		
+</mapper>
