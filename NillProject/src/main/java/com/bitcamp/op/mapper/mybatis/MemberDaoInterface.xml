@@ -2,9 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitcamp.op.member.dao.MemberDaoInterface">
 	<select id="selectById"
-		resultType="com.bitcamp.op.member.model.Userset">Select * from naver_user where id=#{id}</select>
+		resultType="com.bitcamp.op.member.model.Userset">Select * from openproject.naver_user where id=#{id}</select>
+	
 	<insert id="insertMember"
-		parameterType="com.bitcamp.op.member.model.Userset">insert into naver_user (mIdx, id, password, name, 
-		photo ) values (member_seq.nextval, #{id},
-		#{password}, #{name}, #{memberPhoto})</insert>
+		useGeneratedKeys="true"
+		keyProperty="mIdx"
+		parameterType="com.bitcamp.op.member.model.Userset">insert into openproject.naver_user (id, password, name, 
+		birth,gender,checkemail,phone,memberPhoto) values (#{id},
+		#{password}, #{name}, #{birth},#{gender},#{checkemail},#{phone}, #{memberPhoto})</insert>
+		
 </mapper>

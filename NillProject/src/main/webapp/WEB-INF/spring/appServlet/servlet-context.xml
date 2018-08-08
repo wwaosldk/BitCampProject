@@ -55,20 +55,31 @@
 	<!-- 로그인 서비스 빈 등록 -->
 	<beans:bean id="memberLoginService"
 		class="com.bitcamp.op.member.service.MemberLoginService" />
+	
 	<!-- 회원가입 빈 등록 -->
 	<beans:bean id="memberRegService"
 		class="com.bitcamp.op.member.service.MemberRegService" />
-		
+
 	<!-- 데이터베이스 연동을 위한 DataSource 빈 등록 : JdbcTemplate에 주입, Mybatis 설정 -->
-	<beans:bean id="dataSource"
-		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<!-- <beans:bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<beans:property name="driverClass"
-			value="oracle.jdbc.driver.OracleDriver"></beans:property>
+			value="oracle.jdbc.driver.OracleDriver"></beans:property> 
 		<beans:property name="jdbcUrl"
 			value="jdbc:oracle:thin:@localhost:1521:xe"></beans:property>
 		<beans:property name="user" value="system2"></beans:property>
 		<beans:property name="password" value="1234"></beans:property>
+		-->
+	<!-- 이건 mysql -->
+	<beans:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></beans:property>
+		<beans:property name="url"
+			value="jdbc:mysql://opendbmysql.chhalcsi8vtk.ap-northeast-2.rds.amazonaws.com:3306/openproject?characterEncoding=utf8"></beans:property>
+		<beans:property name="username" value="open"></beans:property>
+		<beans:property name="password" value="open1234"></beans:property>
 	</beans:bean>
+	
 	<!-- JdbcTemplate 빈 등록 : DAO에 주입 -->
 	<beans:bean id="jdbcTemplate"
 		class="org.springframework.jdbc.core.JdbcTemplate">
@@ -82,13 +93,14 @@
 		<beans:property name="mapperLocations"
 			value="classpath:com/bitcamp/op/mapper/mybatis/*.xml" />
 	</beans:bean>
+	
 	<!-- SessionTemplate 클래스 등록 -->
 	<beans:bean id="sqlSession"
 		class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0"
-			ref="sqlSessionFactory" />	
+			ref="sqlSessionFactory" />
 	</beans:bean>
-	
+
 	<beans:bean id="mybatisDao"
 		class="com.bitcamp.op.member.dao.MybatisMemberDao" />
 

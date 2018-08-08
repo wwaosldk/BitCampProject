@@ -5,10 +5,12 @@ import java.sql.Connection;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.jdbc.JdbcUtil;
+import com.bitcamp.op.member.dao.MemberDaoInterface;
 import com.bitcamp.op.member.dao.UserDAO;
 import com.bitcamp.op.member.model.Userset;
 
@@ -16,10 +18,19 @@ import com.bitcamp.op.member.model.Userset;
 
 public class MemberRegService {
 	
+//	@Autowired
+//	UserDAO memberDao;
+	
 	@Autowired
-	UserDAO memberDao;
-
+	SqlSessionTemplate template;
+	
+	private MemberDaoInterface memberDao;
 	public int RegMember(Userset memberVo, HttpServletRequest request) throws Exception {
+		
+		
+		memberDao = template.getMapper(MemberDaoInterface.class);
+		
+		
 		int result = 0;		
 		Connection conn = null;
 		// 저장용 파일이름 , 물리적저장, DB 저장용
@@ -49,7 +60,7 @@ public class MemberRegService {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			result = memberDao.join(conn, memberVo);
+			result = memberDao.insertMember(memberVo);
 			
 		} finally {
 			JdbcUtil.close(conn);

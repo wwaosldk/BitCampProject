@@ -43,9 +43,9 @@ System.out.println("3333333333333333333333");
 
       try {
 
-         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-         String username = "system2";
-         String pw = "1234";
+         String jdbcUrl = "jdbc:mysql://opendbmysql.chhalcsi8vtk.ap-northeast-2.rds.amazonaws.com:3306/openproject";
+         String username = "open";
+         String pw = "open1234";
 
          // 커넥션풀이 새로운 커넥션을 생성할 때 사용할 커넥션팩토리를 생성.
          ConnectionFactory connFactory = new DriverManagerConnectionFactory(jdbcUrl, username, pw);
